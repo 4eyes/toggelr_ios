@@ -23,6 +23,7 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var submitGameButton: UIButton!
     @IBOutlet weak var redGoals: UICollectionView!
     @IBOutlet weak var blueGoals: UICollectionView!
+    
 
     var redTeam : [String] = [String]()
     var blueTeam : [String] = [String]()
@@ -53,6 +54,56 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
         print("Red: @", redGoals.indexPathsForSelectedItems())
         print("Blue: @", blueGoals.indexPathsForSelectedItems())
         dismissViewControllerAnimated(true, completion: nil)
+        self.uploadRequest()
+    
+        
+    
+    }
+    
+    
+    func uploadRequest()
+    {
+        let url:NSURL = NSURL(string: "https://toggelr.4eyes.ch/rest/X4E-x4etoggelr-game")!
+        let session = NSURLSession.sharedSession()
+        
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+       
+        var redGoal = "0";
+        var blueGoal = "0";
+        for redIndexPath in redGoals.indexPathsForSelectedItems()! {
+            if let redCell = redGoals.cellForItemAtIndexPath(redIndexPath) as? GoalCell {
+                redGoal = redCell.label.text!
+                print(redGoal);
+            }
+        }
+        for blueIndexPath in blueGoals.indexPathsForSelectedItems()! {
+            if let blueCell = blueGoals.cellForItemAtIndexPath(blueIndexPath) as? GoalCell {
+                blueGoal = blueCell.label.text!
+                print(blueGoal);
+            }
+        }
+        
+        let dataString: String = "redp1=\(redTeam[0])&redp2=\(redTeam[1])&bluep1=\(blueTeam[0])&bluep2=\(blueTeam[1])&red=\(redGoal)&blue=\(blueGoal)";
+        print(dataString);
+        let data = dataString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = session.uploadTaskWithRequest(request, fromData: data, completionHandler:
+            {(data,response,error) in
+                
+                guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+                    print("error")
+                    return
+                }
+                
+                let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print(dataString)
+            }
+        );
+        
+        task.resume()
+        
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

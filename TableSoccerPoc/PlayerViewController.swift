@@ -10,10 +10,11 @@ import UIKit
 
 class DataItem : Equatable {
     
-    var indexes : String = ""
+    var indexes : String!
     var image : NSData!
     init(indexes : String, image : NSData) {
         self.indexes = indexes
+        print(indexes);
         self.image = image
     }
 }
@@ -76,10 +77,16 @@ class ViewController: UIViewController, KDDragAndDropCollectionViewDataSource, N
             var blueTeam = [String]()
             
             for player in self.data[0] {
-                redTeam.append(player.indexes)
+                if let id = player.indexes {
+                    print(id)
+                    redTeam.append(id)
+                }
             }
             for player in self.data[2] {
-                blueTeam.append(player.indexes)
+                if let id = player.indexes {
+                    print(id)
+                    blueTeam.append(id)
+                }
             }
             
             gameViewController.redTeam = redTeam
@@ -111,7 +118,7 @@ class ViewController: UIViewController, KDDragAndDropCollectionViewDataSource, N
         for record in jsonResult {
             if let player = record as? NSDictionary {
                 let decodedData = NSData(base64EncodedString: (player["image"]) as! String, options: NSDataBase64DecodingOptions(rawValue: 0))
-                let dataItem = DataItem(indexes: String(player["uid"]), image: decodedData!)
+                let dataItem = DataItem(indexes: String(player["uid"]!), image: decodedData!)
                 self.data[1].append(dataItem)
             }
         }
