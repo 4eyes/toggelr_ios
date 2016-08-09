@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  TableSoccerPoc
@@ -93,6 +94,11 @@ class ViewController: UIViewController, KDDragAndDropCollectionViewDataSource, N
             gameViewController.blueTeam = blueTeam
         }
     }
+    
+    @IBAction func showStatistics(sender: AnyObject) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://toggelr.4eyes.ch")!)
+    }
+    
     func startConnection(){
         let urlPath: String = "https://toggelr.4eyes.ch/rest/X4E-x4etoggelr-player"
         let url: NSURL = NSURL(string: urlPath)!
@@ -150,7 +156,7 @@ class ViewController: UIViewController, KDDragAndDropCollectionViewDataSource, N
         cell.imageView.layer.borderWidth = 3
         cell.imageView.layer.masksToBounds = false
         cell.imageView.layer.borderColor = UIColor.whiteColor().CGColor
-        cell.imageView.layer.cornerRadius = 38
+        cell.imageView.layer.cornerRadius = 27
         cell.imageView.clipsToBounds = true
 
         

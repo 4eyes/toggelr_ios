@@ -54,11 +54,11 @@ class KDDragAndDropCollectionView: UICollectionView, KDDraggable, KDDroppable {
         
         if let indexPath = self.indexPathForItemAtPoint(point) {
             
-            let cell = self.cellForItemAtIndexPath(indexPath)!
+            if let cell = self.cellForItemAtIndexPath(indexPath){
+                imageView = cell.snapshotViewAfterScreenUpdates(true)
             
-            imageView = cell.snapshotViewAfterScreenUpdates(true)
-            
-            imageView?.frame = cell.frame
+                imageView?.frame = cell.frame
+            }
         }
         
         return imageView

@@ -110,6 +110,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Toggelr"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
