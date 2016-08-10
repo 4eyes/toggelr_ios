@@ -53,11 +53,7 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
         print("Team Blue: @", blueTeam)
         print("Red: @", redGoals.indexPathsForSelectedItems())
         print("Blue: @", blueGoals.indexPathsForSelectedItems())
-        dismissViewControllerAnimated(true, completion: nil)
         self.uploadRequest()
-    
-        
-    
     }
     
     
@@ -94,16 +90,25 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
                 
                 guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
                     print("error")
+                    let alert = UIAlertController(title: "Error", message: "Error uploading result", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
                     return
                 }
                 
                 let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
                 print(dataString)
+                let alert = UIAlertController(title: "Submitted", message: "Your result has been uploaded!", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: {
+                    action in
+                        // todo: close result view
+                        //self.navigationController?.popViewControllerAnimated(true)
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         );
         
         task.resume()
-        
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
