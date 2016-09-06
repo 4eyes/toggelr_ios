@@ -30,6 +30,8 @@ class ViewController: UIViewController, KDDragAndDropCollectionViewDataSource, N
     @IBOutlet weak var TeamBlue: UICollectionView!
     @IBOutlet weak var Players: UICollectionView!
     
+    @IBOutlet weak var fieldView: UIView!
+    
     @IBOutlet weak var loadingSign: UIActivityIndicatorView!
     
     var data : [[DataItem]] = [[DataItem]]()
@@ -39,27 +41,34 @@ class ViewController: UIViewController, KDDragAndDropCollectionViewDataSource, N
     var dragAndDropManager : KDDragAndDropManager?
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
+        // initialize data array to store the data for the 3 containers (available players, red team, blue team)
         for i in 0...2 {
-            
             let items = [DataItem]()
-           /* if i == 1 {
-                for j in 0...1 {
-                    
-                    let dataItem = DataItem(indexes: String(i) + ":" + String(j))
-                    
-                    items.append(dataItem)
-                    
-                }
-            }
-            */
             self.data.append(items)
         }
         
-        self.dragAndDropManager = KDDragAndDropManager(canvas: self.view, collectionViews: [TeamRed, Players, TeamBlue])
-
+        self.dragAndDropManager = KDDragAndDropManager(canvas: self.view, collectionViews: [TeamRed, Players, TeamBlue]);
+    }
+    
+    override func viewDidLayoutSubviews() {
+        // Build a triangular path
+        let path = UIBezierPath();
+        print(fieldView.frame.size)
+        path.moveToPoint(CGPoint(x: fieldView.frame.size.width, y: 0));
+        path.addLineToPoint(CGPoint(x: 0, y: fieldView.frame.size.height));
+        path.addLineToPoint(CGPoint(x: fieldView.frame.size.width, y: fieldView.frame.size.height));
+        path.addLineToPoint(CGPoint(x: fieldView.frame.size.width, y: 0));
+        
+        // Create a CAShapeLayer with this triangular path
+        // Same size as the original imageView
+        let mask = CAShapeLayer();
+        mask.frame = fieldView.bounds;
+        mask.path = path.CGPath;
+        
+        // Mask the imageView's layer with this shape
+        fieldView.layer.mask = mask;
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -96,12 +105,11 @@ class ViewController: UIViewController, KDDragAndDropCollectionViewDataSource, N
     }
     
     @IBAction func showStatistics(sender: AnyObject) {
-        UIApplication.sharedApplication().openURL(NSURL(string: "http://toggelr.4eyes.ch")!)
+        UIApplication.sharedApplication().openURL(NSURL(string: Constants.Url.Statistic)!)
     }
     
     func startConnection(){
-        let urlPath: String = "https://toggelr.4eyes.ch/rest/X4E-x4etoggelr-player"
-        let url: NSURL = NSURL(string: urlPath)!
+        let url: NSURL = NSURL(string: Constants.Url.Player)!
         let request: NSURLRequest = NSURLRequest(URL: url)
         let connection: NSURLConnection = NSURLConnection(request: request, delegate: self, startImmediately: false)!
         connection.start()
@@ -151,8 +159,6 @@ class ViewController: UIViewController, KDDragAndDropCollectionViewDataSource, N
         
         let dataItem = data[collectionView.tag][indexPath.item]
         cell.imageView.image = UIImage(data: dataItem.image)
-//        cell.label.text = String(indexPath.item) + "\n\n" + dataItem.indexes
-//        cell.backgroundColor = dataItem.colour
         cell.imageView.layer.borderWidth = 3
         cell.imageView.layer.masksToBounds = false
         cell.imageView.layer.borderColor = UIColor.whiteColor().CGColor
@@ -168,19 +174,6 @@ class ViewController: UIViewController, KDDragAndDropCollectionViewDataSource, N
             .FlexibleTopMargin,
             .FlexibleHeight,
             .FlexibleBottomMargin]
-        
-/*        if let kdCollectionView = collectionView as? KDDragAndDropCollectionView {
-            
-            if let draggingPathOfCellBeingDragged = kdCollectionView.draggingPathOfCellBeingDragged {
-                
-                if draggingPathOfCellBeingDragged.item == indexPath.item {
-                    
-                    cell.hidden = true
-                    
-                }
-            }
-        }
-*/
         
         return cell
     }

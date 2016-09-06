@@ -59,7 +59,7 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func uploadRequest()
     {
-        let url:NSURL = NSURL(string: "https://toggelr.4eyes.ch/rest/X4E-x4etoggelr-game")!
+        let url:NSURL = NSURL(string: Constants.Url.Game)!
         let session = NSURLSession.sharedSession()
         
         let request = NSMutableURLRequest(URL: url)
