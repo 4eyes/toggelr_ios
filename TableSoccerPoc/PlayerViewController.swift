@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import SWRevealViewController
 
 class DataItem : Equatable {
     
@@ -24,8 +25,10 @@ func ==(lhs: DataItem, rhs: DataItem) -> Bool {
     return lhs.indexes == rhs.indexes
 }
 
-class ViewController: UIViewController, KDDragAndDropCollectionViewDataSource, NSURLConnectionDelegate {
-        
+class PlayerViewController: UIViewController, KDDragAndDropCollectionViewDataSource, NSURLConnectionDelegate {
+    
+    @IBOutlet weak var menuButton: UIButton!
+    
     @IBOutlet weak var TeamRed: UICollectionView!
     @IBOutlet weak var TeamBlue: UICollectionView!
     @IBOutlet weak var Players: UICollectionView!
@@ -43,6 +46,12 @@ class ViewController: UIViewController, KDDragAndDropCollectionViewDataSource, N
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if revealViewController() != nil {
+            menuButton.addTarget(revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside);
+            
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+
         // initialize data array to store the data for the 3 containers (available players, red team, blue team)
         for i in 0...2 {
             let items = [DataItem]()
@@ -55,7 +64,7 @@ class ViewController: UIViewController, KDDragAndDropCollectionViewDataSource, N
     override func viewDidLayoutSubviews() {
         // Build a triangular path
         let path = UIBezierPath();
-        print(fieldView.frame.size)
+        
         path.moveToPoint(CGPoint(x: fieldView.frame.size.width, y: 0));
         path.addLineToPoint(CGPoint(x: 0, y: fieldView.frame.size.height));
         path.addLineToPoint(CGPoint(x: fieldView.frame.size.width, y: fieldView.frame.size.height));

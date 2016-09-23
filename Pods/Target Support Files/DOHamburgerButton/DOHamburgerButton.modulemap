@@ -1,0 +1,6 @@
+framework module DOHamburgerButton {
+  umbrella header "DOHamburgerButton-umbrella.h"
+
+  export *
+  module * { export * }
+}

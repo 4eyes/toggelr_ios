@@ -32,6 +32,7 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         for i in 0...30 {
             let dataItem = GoalDataItem(indexes: String(i))
             self.data.append(dataItem)

@@ -15,31 +15,31 @@ class LaunchViewController: UIViewController {
     var timer : NSTimer?;
     
     override func viewDidAppear(animated: Bool) {
-
         super.viewDidAppear(animated);
-        
-        var animationImages : [UIImage] = [];
-        
-        for i in 0..<32 {
-            animationImages.append(UIImage(named: "anim" + String(i))!);
-        }
-        
-        animatedSplashScreen.animationImages = animationImages;
-        animatedSplashScreen.animationRepeatCount=1;
-        animatedSplashScreen.animationDuration=1.6;
-        
-        animatedSplashScreen.startAnimating();
-        animatedSplashScreen.image = UIImage(named: "anim32");
-        
-        started = true;
-        
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: #selector(LaunchViewController.didFinishAnimatingImageView), userInfo: nil, repeats: true);
+
+        startAnimation();
     }
     
-    func didFinishAnimatingImageView(){
-        if(!animatedSplashScreen.isAnimating() && started){
-            timer?.invalidate();
-            self.performSegueWithIdentifier("playerselection", sender: self);
+    func startAnimation(){
+        let animationImageCount = 32;
+        var animationImages : [CGImage] = [];
+        
+        for i in 0..<animationImageCount {
+            animationImages.append(UIImage(named: "anim" + String(i))!.CGImage!);
         }
+        
+        let animation = CAKeyframeAnimation(keyPath: "contents");
+        animation.calculationMode = kCAAnimationDiscrete;
+        animation.duration = Double(animationImageCount) / 20.0; // 20 frames per second
+        animation.values = animationImages;
+        animation.repeatCount = 1;
+        animation.removedOnCompletion = false;
+        animation.fillMode = kCAFillModeForwards;
+        animation.delegate = self;
+        self.animatedSplashScreen.layer.addAnimation(animation, forKey: "animation");
+    }
+    
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+        self.performSegueWithIdentifier("playerselection", sender: self);
     }
 }
