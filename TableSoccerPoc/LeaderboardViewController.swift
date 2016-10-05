@@ -23,14 +23,16 @@ class LeaderboardViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true);
+        
         if revealViewController() != nil {
             menuButton.target = revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        let urlRequest = NSURLRequest(URL: NSURL(string: "https://toggelr.4eyes.ch")!)
-        webView?.loadRequest(urlRequest);
+        let urlRequest = URLRequest(url: URL(string: "https://toggelr.4eyes.ch")!)
+        webView?.load(urlRequest);
         
         self.view.addSubview(webView!)
     }

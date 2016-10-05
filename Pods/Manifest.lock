@@ -1,18 +1,15 @@
 PODS:
-  - Alamofire (3.4.1)
-  - DOHamburgerButton (0.0.1)
+  - Alamofire (4.0.1)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.4.1)
-  - DOHamburgerButton (~> 0.0)
+  - Alamofire (~> 4.0.0)
   - SWRevealViewController (~> 2.3.0)
 
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  DOHamburgerButton: 2afce23a99d7cb629bf65cd04c102fff962caab8
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: f1cd1322fcac612ab8724b53273448de30c53c1c
+PODFILE CHECKSUM: 04d55224281fca2e279719ac4a97887ef2c65d82
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

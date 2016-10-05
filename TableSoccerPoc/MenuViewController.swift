@@ -9,5 +9,17 @@
 import UIKit
 
 class MenuViewController : UIViewController {
+    @IBOutlet weak var versionInfoLabel: UILabel!
     
+    override func viewDidLoad() {
+        setVersionInfo();
+    }
+    
+    func setVersionInfo(){
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            if let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+                self.versionInfoLabel.text = "Version " + version + " (b" + build + ")";
+            }
+        }
+    }
 }

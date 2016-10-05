@@ -26,13 +26,75 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TableSoccerPoc/LaunchViewController.swift"
-            timestampString = "494890522.774946"
+            timestampString = "497105321.022302"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "viewDidAppear(animated:)"
-            landmarkType = "7">
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "LaunchViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Toggelr.LaunchViewController.timer.getter : Swift.Optional&lt;__ObjC.Timer&gt;"
+                  moduleName = "Toggelr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michel/projects/toggelr_ios/TableSoccerPoc/LaunchViewController.swift"
+                  timestampString = "497295002.850791"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Toggelr.LaunchViewController.timer.setter : Swift.Optional&lt;__ObjC.Timer&gt;"
+                  moduleName = "Toggelr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michel/projects/toggelr_ios/TableSoccerPoc/LaunchViewController.swift"
+                  timestampString = "497295002.852027"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Toggelr.LaunchViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Toggelr.LaunchViewController"
+                  moduleName = "Toggelr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michel/projects/toggelr_ios/TableSoccerPoc/LaunchViewController.swift"
+                  timestampString = "497295002.853203"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Toggelr.LaunchViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Toggelr.LaunchViewController&gt;"
+                  moduleName = "Toggelr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michel/projects/toggelr_ios/TableSoccerPoc/LaunchViewController.swift"
+                  timestampString = "497295002.854368"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,12 +104,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TableSoccerPoc/PlayerViewController.swift"
-            timestampString = "495062743.788347"
+            timestampString = "497305313.814681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "prepareForSegue(segue:sender:)"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TableSoccerPoc/MainMenuTableViewController.swift"
+            timestampString = "497283559.271517"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "tableView(_:willDisplay:forRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TableSoccerPoc/MainMenuTableViewController.swift"
+            timestampString = "497294990.061334"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

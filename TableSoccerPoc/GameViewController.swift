@@ -21,6 +21,8 @@ func ==(lhs: GoalDataItem, rhs: GoalDataItem) -> Bool {
 class GameViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var submitGameButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     @IBOutlet weak var redGoals: UICollectionView!
     @IBOutlet weak var blueGoals: UICollectionView!
     
@@ -45,38 +47,40 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
 
-    @IBAction func cancelGame(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelGame(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func submitGame(sender: AnyObject) {
+    @IBAction func submitGame(_ sender: AnyObject) {
+        self.submitGameButton.isEnabled = false;
+        
         print("Team Red: @", redTeam)
         print("Team Blue: @", blueTeam)
-        print("Red: @", redGoals.indexPathsForSelectedItems())
-        print("Blue: @", blueGoals.indexPathsForSelectedItems())
+        print("Red: @", redGoals.indexPathsForSelectedItems)
+        print("Blue: @", blueGoals.indexPathsForSelectedItems)
         self.uploadRequest()
     }
     
     
     func uploadRequest()
     {
-        let url:NSURL = NSURL(string: Constants.Url.Game)!
-        let session = NSURLSession.sharedSession()
+        let url:URL = URL(string: Constants.Url.Game)!
+        let session = URLSession.shared
         
-        let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
-        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        let request = NSMutableURLRequest(url: url)
+        request.httpMethod = "POST"
+        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
        
         var redGoal = "0";
         var blueGoal = "0";
-        for redIndexPath in redGoals.indexPathsForSelectedItems()! {
-            if let redCell = redGoals.cellForItemAtIndexPath(redIndexPath) as? GoalCell {
+        for redIndexPath in redGoals.indexPathsForSelectedItems! {
+            if let redCell = redGoals.cellForItem(at: redIndexPath) as? GoalCell {
                 redGoal = redCell.label.text!
                 print(redGoal);
             }
         }
-        for blueIndexPath in blueGoals.indexPathsForSelectedItems()! {
-            if let blueCell = blueGoals.cellForItemAtIndexPath(blueIndexPath) as? GoalCell {
+        for blueIndexPath in blueGoals.indexPathsForSelectedItems! {
+            if let blueCell = blueGoals.cellForItem(at: blueIndexPath) as? GoalCell {
                 blueGoal = blueCell.label.text!
                 print(blueGoal);
             }
@@ -84,53 +88,54 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         let dataString: String = "redp1=\(redTeam[0])&redp2=\(redTeam[1])&bluep1=\(blueTeam[0])&bluep2=\(blueTeam[1])&red=\(redGoal)&blue=\(blueGoal)";
         print(dataString);
-        let data = dataString.dataUsingEncoding(NSUTF8StringEncoding)
+        let data = dataString.data(using: String.Encoding.utf8)
         
-        let task = session.uploadTaskWithRequest(request, fromData: data, completionHandler:
+        let task = session.uploadTask(with: request as URLRequest, from: data, completionHandler:
             {(data,response,error) in
                 
-                guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+                guard let _:Data = data, let _:URLResponse = response  , error == nil else {
                     print("error")
-                    let alert = UIAlertController(title: "Error", message: "Error uploading result", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    let alert = UIAlertController(title: "Error", message: "Error uploading result", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                     return
                 }
                 
-                let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 print(dataString)
-                let alert = UIAlertController(title: "Submitted", message: "Your result has been uploaded!", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: {
+                let alert = UIAlertController(title: "Submitted", message: "Your result has been uploaded!", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: {
                     action in
                         // todo: close result view
                         //self.navigationController?.popViewControllerAnimated(true)
                 }))
-                self.presentViewController(alert, animated: true, completion: nil)
+                self.submitGameButton.isEnabled = true;
+                self.present(alert, animated: true, completion: nil)
             }
         );
         
         task.resume()
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("select")
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        let cell = collectionView.cellForItem(at: indexPath)
         if(cell != nil){
             let cell = cell as! GoalCell
 //        cell.backgroundColor = UIColor.whiteColor()
 //        cell.label.textColor = UIColor.blackColor()
             cell.layer.borderWidth = 3
-            cell.layer.borderColor = UIColor.whiteColor().CGColor
+            cell.layer.borderColor = UIColor.white.cgColor
         }
     }
 
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         print("deselect")
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        let cell = collectionView.cellForItem(at: indexPath)
         if(cell != nil){
             let cell = cell as! GoalCell
             cell.layer.borderWidth = 0
-            cell.layer.borderColor = UIColor.clearColor().CGColor
+            cell.layer.borderColor = UIColor.clear.cgColor
         }
 
         
@@ -148,19 +153,19 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     // MARK : UICollectionViewDataSource
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GoalCell", forIndexPath: indexPath) as! GoalCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GoalCell", for: indexPath) as! GoalCell
         
-        let dataItem = data[indexPath.item]
+        let dataItem = data[(indexPath as NSIndexPath).item]
         cell.label.text = dataItem.indexes
         
-        cell.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.layer.borderColor = UIColor.white.cgColor
         cell.layer.borderWidth = 0
 
         /*cell.imageView.image = UIImage(data: dataItem.image)

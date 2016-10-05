@@ -13,8 +13,8 @@ import SWRevealViewController
 class DataItem : Equatable {
     
     var indexes : String!
-    var image : NSData!
-    init(indexes : String, image : NSData) {
+    var image : Data!
+    init(indexes : String, image : Data) {
         self.indexes = indexes
         print(indexes);
         self.image = image
@@ -35,6 +35,11 @@ class PlayerViewController: UIViewController, KDDragAndDropCollectionViewDataSou
     
     @IBOutlet weak var fieldView: UIView!
     
+    @IBOutlet weak var redDefence: UIView!
+    @IBOutlet weak var redAttack: UIView!
+    @IBOutlet weak var blueDefence: UIView!
+    @IBOutlet weak var blueAttack: UIView!
+    
     @IBOutlet weak var loadingSign: UIActivityIndicatorView!
     
     var data : [[DataItem]] = [[DataItem]]()
@@ -45,9 +50,11 @@ class PlayerViewController: UIViewController, KDDragAndDropCollectionViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true);
         
         if revealViewController() != nil {
-            menuButton.addTarget(revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside);
+            menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: UIControlEvents.touchUpInside);
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
@@ -59,39 +66,42 @@ class PlayerViewController: UIViewController, KDDragAndDropCollectionViewDataSou
         }
         
         self.dragAndDropManager = KDDragAndDropManager(canvas: self.view, collectionViews: [TeamRed, Players, TeamBlue]);
+        
+        
+        self.redDefence.layer.borderColor = UIColor.white.cgColor
+        self.redDefence.layer.cornerRadius = 33.5
+        self.redDefence.layer.borderWidth = 3
+        
+        self.redAttack.layer.borderColor = UIColor.white.cgColor
+        self.redAttack.layer.cornerRadius = 33.5
+        self.redAttack.layer.borderWidth = 3
+        
+        self.blueDefence.layer.borderColor = UIColor.white.cgColor
+        self.blueDefence.layer.cornerRadius = 33.5
+        self.blueDefence.layer.borderWidth = 3
+        
+        self.blueAttack.layer.borderColor = UIColor.white.cgColor
+        self.blueAttack.layer.cornerRadius = 33.5
+        self.blueAttack.layer.borderWidth = 3
+
     }
     
     override func viewDidLayoutSubviews() {
-        // Build a triangular path
-        let path = UIBezierPath();
-        
-        path.moveToPoint(CGPoint(x: fieldView.frame.size.width, y: 0));
-        path.addLineToPoint(CGPoint(x: 0, y: fieldView.frame.size.height));
-        path.addLineToPoint(CGPoint(x: fieldView.frame.size.width, y: fieldView.frame.size.height));
-        path.addLineToPoint(CGPoint(x: fieldView.frame.size.width, y: 0));
-        
-        // Create a CAShapeLayer with this triangular path
-        // Same size as the original imageView
-        let mask = CAShapeLayer();
-        mask.frame = fieldView.bounds;
-        mask.path = path.CGPath;
-        
-        // Mask the imageView's layer with this shape
-        fieldView.layer.mask = mask;
+        self.drawField();
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //                startConnection()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         startConnection()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "newgame"){
-            let gameViewController = segue.destinationViewController as! GameViewController
+            let gameViewController = segue.destination as! GameViewController
             var redTeam = [String]()
             var blueTeam = [String]()
             
@@ -113,35 +123,54 @@ class PlayerViewController: UIViewController, KDDragAndDropCollectionViewDataSou
         }
     }
     
-    @IBAction func showStatistics(sender: AnyObject) {
-        UIApplication.sharedApplication().openURL(NSURL(string: Constants.Url.Statistic)!)
+    @IBAction func showStatistics(_ sender: AnyObject) {
+        UIApplication.shared.openURL(URL(string: Constants.Url.Statistic)!)
+    }
+    
+    func drawField(){
+        // Build a triangular path
+        let path = UIBezierPath();
+        
+        path.move(to: CGPoint(x: fieldView.frame.size.width, y: 0));
+        path.addLine(to: CGPoint(x: 0, y: fieldView.frame.size.height));
+        path.addLine(to: CGPoint(x: fieldView.frame.size.width, y: fieldView.frame.size.height));
+        path.addLine(to: CGPoint(x: fieldView.frame.size.width, y: 0));
+        
+        // Create a CAShapeLayer with this triangular path
+        // Same size as the original imageView
+        let mask = CAShapeLayer();
+        mask.frame = fieldView.bounds;
+        mask.path = path.cgPath;
+        
+        // Mask the imageView's layer with this shape
+        fieldView.layer.mask = mask;
     }
     
     func startConnection(){
-        let url: NSURL = NSURL(string: Constants.Url.Player)!
-        let request: NSURLRequest = NSURLRequest(URL: url)
+        let url: URL = URL(string: Constants.Url.Player)!
+        let request: URLRequest = URLRequest(url: url)
         let connection: NSURLConnection = NSURLConnection(request: request, delegate: self, startImmediately: false)!
         connection.start()
     }
     
-    func connection(connection: NSURLConnection!, didReceiveData jsonData: NSData!){
-        self.jsonData.appendData(jsonData)
+    func connection(_ connection: NSURLConnection!, didReceiveData jsonData: Data!){
+        self.jsonData.append(jsonData)
     }
     
-    func buttonAction(sender: UIButton!){
+    func buttonAction(_ sender: UIButton!){
         startConnection()
     }
     
-    func connectionDidFinishLoading(connection: NSURLConnection!) {
+    func connectionDidFinishLoading(_ connection: NSURLConnection!) {
         var err: NSError
         // throwing an error on the line below (can't figure out where the error message is)
         print("received data")
-        let jsonResult: NSArray = (try! NSJSONSerialization.JSONObjectWithData(self.jsonData, options: NSJSONReadingOptions.MutableContainers)) as! NSArray
+        let jsonResult: NSArray = (try! JSONSerialization.jsonObject(with: self.jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSArray
         
         for record in jsonResult {
             if let player = record as? NSDictionary {
-                let decodedData = NSData(base64EncodedString: (player["image"]) as! String, options: NSDataBase64DecodingOptions(rawValue: 0))
-                let dataItem = DataItem(indexes: String(player["uid"]!), image: decodedData!)
+                let decodedData = Data(base64Encoded: (player["image"]) as! String, options: NSData.Base64DecodingOptions(rawValue: 0))
+                let dataItem = DataItem(indexes: String(describing: player["uid"]!), image: decodedData!)
                 self.data[1].append(dataItem)
             }
         }
@@ -149,7 +178,7 @@ class PlayerViewController: UIViewController, KDDragAndDropCollectionViewDataSou
         loadingSign.stopAnimating()
     }
     
-    func connection(connection: NSURLConnection, didFailWithError error: NSError) {
+    func connection(_ connection: NSURLConnection, didFailWithError error: Error) {
         print(error)
     }
     
@@ -157,72 +186,72 @@ class PlayerViewController: UIViewController, KDDragAndDropCollectionViewDataSou
     
     // MARK : UICollectionViewDataSource
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data[collectionView.tag].count
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ColorCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ColorCell
         
-        let dataItem = data[collectionView.tag][indexPath.item]
+        let dataItem = data[collectionView.tag][(indexPath as NSIndexPath).item]
         cell.imageView.image = UIImage(data: dataItem.image)
         cell.imageView.layer.borderWidth = 3
         cell.imageView.layer.masksToBounds = false
-        cell.imageView.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.imageView.layer.borderColor = UIColor.white.cgColor
         cell.imageView.layer.cornerRadius = 27
         cell.imageView.clipsToBounds = true
 
         
-        cell.hidden = false
+        cell.isHidden = false
         cell.contentView.frame = cell.bounds
-        cell.contentView.autoresizingMask = [.FlexibleLeftMargin,
-            .FlexibleWidth,
-            .FlexibleRightMargin,
-            .FlexibleTopMargin,
-            .FlexibleHeight,
-            .FlexibleBottomMargin]
+        cell.contentView.autoresizingMask = [.flexibleLeftMargin,
+            .flexibleWidth,
+            .flexibleRightMargin,
+            .flexibleTopMargin,
+            .flexibleHeight,
+            .flexibleBottomMargin]
         
         return cell
     }
     
     // MARK : KDDragAndDropCollectionViewDataSource
     
-    func collectionView(collectionView: UICollectionView, dataItemForIndexPath indexPath: NSIndexPath) -> AnyObject {
-        return data[collectionView.tag][indexPath.item]
+    func collectionView(_ collectionView: UICollectionView, dataItemForIndexPath indexPath: IndexPath) -> AnyObject {
+        return data[collectionView.tag][(indexPath as NSIndexPath).item]
     }
-    func collectionView(collectionView: UICollectionView, insertDataItem dataItem : AnyObject, atIndexPath indexPath: NSIndexPath) -> Void {
+    func collectionView(_ collectionView: UICollectionView, insertDataItem dataItem : AnyObject, atIndexPath indexPath: IndexPath) -> Void {
         
         if let di = dataItem as? DataItem {
-            data[collectionView.tag].insert(di, atIndex: indexPath.item)
+            data[collectionView.tag].insert(di, at: (indexPath as NSIndexPath).item)
         }
         
         
     }
-    func collectionView(collectionView: UICollectionView, deleteDataItemAtIndexPath indexPath : NSIndexPath) -> Void {
-        data[collectionView.tag].removeAtIndex(indexPath.item)
+    func collectionView(_ collectionView: UICollectionView, deleteDataItemAtIndexPath indexPath : IndexPath) -> Void {
+        data[collectionView.tag].remove(at: (indexPath as NSIndexPath).item)
     }
     
-    func collectionView(collectionView: UICollectionView, moveDataItemFromIndexPath from: NSIndexPath, toIndexPath to : NSIndexPath) -> Void {
+    func collectionView(_ collectionView: UICollectionView, moveDataItemFromIndexPath from: IndexPath, toIndexPath to : IndexPath) -> Void {
         
-        let fromDataItem: DataItem = data[collectionView.tag][from.item]
-        data[collectionView.tag].removeAtIndex(from.item)
-        data[collectionView.tag].insert(fromDataItem, atIndex: to.item)
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: to) as! ColorCell
-        cell.hidden = false
+        let fromDataItem: DataItem = data[collectionView.tag][(from as NSIndexPath).item]
+        data[collectionView.tag].remove(at: (from as NSIndexPath).item)
+        data[collectionView.tag].insert(fromDataItem, at: (to as NSIndexPath).item)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: to) as! ColorCell
+        cell.isHidden = false
         collectionView.reloadData()
 
     }
     
-    func collectionView(collectionView: UICollectionView, indexPathForDataItem dataItem: AnyObject) -> NSIndexPath? {
+    func collectionView(_ collectionView: UICollectionView, indexPathForDataItem dataItem: AnyObject) -> IndexPath? {
         if let candidate : DataItem = dataItem as? DataItem {
             
             for item : DataItem in data[collectionView.tag] {
                 if candidate  == item {
                     
-                    let position = data[collectionView.tag].indexOf(item)! // ! if we are inside the condition we are guaranteed a position
-                    let indexPath = NSIndexPath(forItem: position, inSection: 0)
+                    let position = data[collectionView.tag].index(of: item)! // ! if we are inside the condition we are guaranteed a position
+                    let indexPath = IndexPath(item: position, section: 0)
                     return indexPath
                 }
             }

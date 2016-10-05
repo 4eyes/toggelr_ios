@@ -4,7 +4,27 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>TableSoccerPoc.xcscheme</key>
+		<key>Toggelr Watch (Complication).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Toggelr Watch (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Toggelr Watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Toggelr-Widget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>Toggelr.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +32,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>D011BF9C1DA393F900295F94</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D043343D1BA1A60D000E383D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D04334521BA1A60D000E383D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D096728C1DA3A9EE00416C4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

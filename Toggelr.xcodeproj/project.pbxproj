@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		6F11E3EE5E24D67961DCD22B /* Pods_Toggelr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2F982D2234BC7614898008 /* Pods_Toggelr.framework */; };
+		D011BFA11DA393FA00295F94 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D011BF9F1DA393FA00295F94 /* Interface.storyboard */; };
+		D011BFA31DA393FA00295F94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D011BFA21DA393FA00295F94 /* Assets.xcassets */; };
+		D011BFAA1DA393FA00295F94 /* Toggelr Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D011BFA91DA393FA00295F94 /* Toggelr Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D011BFB11DA393FA00295F94 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D011BFB01DA393FA00295F94 /* InterfaceController.swift */; };
+		D011BFB31DA393FA00295F94 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D011BFB21DA393FA00295F94 /* ExtensionDelegate.swift */; };
+		D011BFB51DA393FA00295F94 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D011BFB41DA393FA00295F94 /* NotificationController.swift */; };
+		D011BFB71DA393FA00295F94 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D011BFB61DA393FA00295F94 /* ComplicationController.swift */; };
+		D011BFB91DA393FA00295F94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D011BFB81DA393FA00295F94 /* Assets.xcassets */; };
+		D011BFBD1DA393FA00295F94 /* Toggelr Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D011BF9D1DA393F900295F94 /* Toggelr Watch.app */; };
 		D02E0C231D5DD188007ECD34 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02E0C221D5DD188007ECD34 /* Constants.swift */; };
 		D04334441BA1A60D000E383D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04334431BA1A60D000E383D /* AppDelegate.swift */; };
 		D04334461BA1A60D000E383D /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04334451BA1A60D000E383D /* PlayerViewController.swift */; };
@@ -23,12 +32,31 @@
 		D04334711BA1CBAF000E383D /* CenterCellCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04334701BA1CBAF000E383D /* CenterCellCollectionViewFlowLayout.swift */; };
 		D07F30BE1D7F068300E86C49 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07F30BD1D7F068300E86C49 /* Images.xcassets */; };
 		D07F30C01D7F080700E86C49 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07F30BF1D7F080700E86C49 /* LaunchViewController.swift */; };
+		D096728F1DA3A9EE00416C4E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D096728E1DA3A9EE00416C4E /* NotificationCenter.framework */; };
+		D09672921DA3A9EE00416C4E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09672911DA3A9EE00416C4E /* TodayViewController.swift */; };
+		D09672951DA3A9EE00416C4E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09672931DA3A9EE00416C4E /* MainInterface.storyboard */; };
+		D09672991DA3A9EE00416C4E /* Toggelr-Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D096728D1DA3A9EE00416C4E /* Toggelr-Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D0A839031D81FC5200DF391A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A839021D81FC5200DF391A /* MenuViewController.swift */; };
 		D0A839051D82094400DF391A /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A839041D82094400DF391A /* LeaderboardViewController.swift */; };
 		D0AFE95C1BB2D990008C3FBA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AFE95B1BB2D990008C3FBA /* GameViewController.swift */; };
+		D0F863FC1DA3F0D4002F5743 /* MainMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F863FB1DA3F0D4002F5743 /* MainMenuTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D011BFAB1DA393FA00295F94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D04334361BA1A60D000E383D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D011BFA81DA393FA00295F94;
+			remoteInfo = "Toggelr Watch Extension";
+		};
+		D011BFBB1DA393FA00295F94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D04334361BA1A60D000E383D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D011BF9C1DA393F900295F94;
+			remoteInfo = "Toggelr Watch";
+		};
 		D04334541BA1A60D000E383D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D04334361BA1A60D000E383D /* Project object */;
@@ -36,10 +64,65 @@
 			remoteGlobalIDString = D043343D1BA1A60D000E383D;
 			remoteInfo = TableSoccerPoc;
 		};
+		D09672971DA3A9EE00416C4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D04334361BA1A60D000E383D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D096728C1DA3A9EE00416C4E;
+			remoteInfo = "Toggelr-Widget";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D011BFC31DA393FA00295F94 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D011BFAA1DA393FA00295F94 /* Toggelr Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D011BFC51DA393FA00295F94 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				D011BFBD1DA393FA00295F94 /* Toggelr Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D096729D1DA3A9EE00416C4E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D09672991DA3A9EE00416C4E /* Toggelr-Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8E2F982D2234BC7614898008 /* Pods_Toggelr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toggelr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D011BF9D1DA393F900295F94 /* Toggelr Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Toggelr Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D011BFA01DA393FA00295F94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		D011BFA21DA393FA00295F94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D011BFA41DA393FA00295F94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D011BFA91DA393FA00295F94 /* Toggelr Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Toggelr Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D011BFAF1DA393FA00295F94 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		D011BFB01DA393FA00295F94 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		D011BFB21DA393FA00295F94 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		D011BFB41DA393FA00295F94 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		D011BFB61DA393FA00295F94 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		D011BFB81DA393FA00295F94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D011BFBA1DA393FA00295F94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D02E0C221D5DD188007ECD34 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D043343E1BA1A60D000E383D /* Toggelr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toggelr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D04334421BA1A60D000E383D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,15 +142,28 @@
 		D04334701BA1CBAF000E383D /* CenterCellCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterCellCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		D07F30BD1D7F068300E86C49 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D07F30BF1D7F080700E86C49 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		D096728D1DA3A9EE00416C4E /* Toggelr-Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Toggelr-Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D096728E1DA3A9EE00416C4E /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D09672911DA3A9EE00416C4E /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D09672941DA3A9EE00416C4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D09672961DA3A9EE00416C4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0A839021D81FC5200DF391A /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D0A839041D82094400DF391A /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		D0A839061D820A9200DF391A /* Toggelr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Toggelr-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0AFE95B1BB2D990008C3FBA /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		D0F863FB1DA3F0D4002F5743 /* MainMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewController.swift; sourceTree = "<group>"; };
 		D68EF0DEAF052ACFFB88F810 /* Pods-Toggelr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toggelr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Toggelr/Pods-Toggelr.debug.xcconfig"; sourceTree = "<group>"; };
 		EEFEA0893F1561182FB01A4C /* Pods-Toggelr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toggelr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Toggelr/Pods-Toggelr.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D011BFA61DA393FA00295F94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D043343B1BA1A60D000E383D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -83,6 +179,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D096728A1DA3A9EE00416C4E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D096728F1DA3A9EE00416C4E /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -90,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				8E2F982D2234BC7614898008 /* Pods_Toggelr.framework */,
+				D096728E1DA3A9EE00416C4E /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -103,11 +208,46 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D011BF9E1DA393FA00295F94 /* Toggelr Watch */ = {
+			isa = PBXGroup;
+			children = (
+				D011BF9F1DA393FA00295F94 /* Interface.storyboard */,
+				D011BFA21DA393FA00295F94 /* Assets.xcassets */,
+				D011BFA41DA393FA00295F94 /* Info.plist */,
+			);
+			path = "Toggelr Watch";
+			sourceTree = "<group>";
+		};
+		D011BFAD1DA393FA00295F94 /* Toggelr Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D011BFB01DA393FA00295F94 /* InterfaceController.swift */,
+				D011BFB21DA393FA00295F94 /* ExtensionDelegate.swift */,
+				D011BFB41DA393FA00295F94 /* NotificationController.swift */,
+				D011BFB61DA393FA00295F94 /* ComplicationController.swift */,
+				D011BFB81DA393FA00295F94 /* Assets.xcassets */,
+				D011BFBA1DA393FA00295F94 /* Info.plist */,
+				D011BFAE1DA393FA00295F94 /* Supporting Files */,
+			);
+			path = "Toggelr Watch Extension";
+			sourceTree = "<group>";
+		};
+		D011BFAE1DA393FA00295F94 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D011BFAF1DA393FA00295F94 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D04334351BA1A60D000E383D = {
 			isa = PBXGroup;
 			children = (
-				D04334401BA1A60D000E383D /* TableSoccerPoc */,
-				D04334561BA1A60D000E383D /* TableSoccerPocTests */,
+				D04334401BA1A60D000E383D /* Toggelr */,
+				D04334561BA1A60D000E383D /* ToggelrTests */,
+				D011BF9E1DA393FA00295F94 /* Toggelr Watch */,
+				D011BFAD1DA393FA00295F94 /* Toggelr Watch Extension */,
+				D09672901DA3A9EE00416C4E /* Toggelr-Widget */,
 				D043343F1BA1A60D000E383D /* Products */,
 				3ECB286DC294E70EA2B311EA /* Pods */,
 				1A3BA3ADD892CD9D2A6B02BE /* Frameworks */,
@@ -119,11 +259,14 @@
 			children = (
 				D043343E1BA1A60D000E383D /* Toggelr.app */,
 				D04334531BA1A60D000E383D /* Toggelr.xctest */,
+				D011BF9D1DA393F900295F94 /* Toggelr Watch.app */,
+				D011BFA91DA393FA00295F94 /* Toggelr Watch Extension.appex */,
+				D096728D1DA3A9EE00416C4E /* Toggelr-Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D04334401BA1A60D000E383D /* TableSoccerPoc */ = {
+		D04334401BA1A60D000E383D /* Toggelr */ = {
 			isa = PBXGroup;
 			children = (
 				D095BF531BB13A4E00EFD57C /* Delegate */,
@@ -136,6 +279,7 @@
 				D04334411BA1A60D000E383D /* Supporting Files */,
 				D02E0C221D5DD188007ECD34 /* Constants.swift */,
 			);
+			name = Toggelr;
 			path = TableSoccerPoc;
 			sourceTree = "<group>";
 		};
@@ -149,12 +293,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D04334561BA1A60D000E383D /* TableSoccerPocTests */ = {
+		D04334561BA1A60D000E383D /* ToggelrTests */ = {
 			isa = PBXGroup;
 			children = (
 				D04334591BA1A60D000E383D /* TableSoccerPocTests.swift */,
 				D04334571BA1A60D000E383D /* Supporting Files */,
 			);
+			name = ToggelrTests;
 			path = TableSoccerPocTests;
 			sourceTree = "<group>";
 		};
@@ -175,6 +320,7 @@
 				D07F30BF1D7F080700E86C49 /* LaunchViewController.swift */,
 				D0A839021D81FC5200DF391A /* MenuViewController.swift */,
 				D0A839041D82094400DF391A /* LeaderboardViewController.swift */,
+				D0F863FB1DA3F0D4002F5743 /* MainMenuTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -222,9 +368,53 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		D09672901DA3A9EE00416C4E /* Toggelr-Widget */ = {
+			isa = PBXGroup;
+			children = (
+				D09672911DA3A9EE00416C4E /* TodayViewController.swift */,
+				D09672931DA3A9EE00416C4E /* MainInterface.storyboard */,
+				D09672961DA3A9EE00416C4E /* Info.plist */,
+			);
+			path = "Toggelr-Widget";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D011BF9C1DA393F900295F94 /* Toggelr Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D011BFC41DA393FA00295F94 /* Build configuration list for PBXNativeTarget "Toggelr Watch" */;
+			buildPhases = (
+				D011BF9B1DA393F900295F94 /* Resources */,
+				D011BFC31DA393FA00295F94 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D011BFAC1DA393FA00295F94 /* PBXTargetDependency */,
+			);
+			name = "Toggelr Watch";
+			productName = "Toggelr Watch";
+			productReference = D011BF9D1DA393F900295F94 /* Toggelr Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		D011BFA81DA393FA00295F94 /* Toggelr Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D011BFC21DA393FA00295F94 /* Build configuration list for PBXNativeTarget "Toggelr Watch Extension" */;
+			buildPhases = (
+				D011BFA51DA393FA00295F94 /* Sources */,
+				D011BFA61DA393FA00295F94 /* Frameworks */,
+				D011BFA71DA393FA00295F94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Toggelr Watch Extension";
+			productName = "Toggelr Watch Extension";
+			productReference = D011BFA91DA393FA00295F94 /* Toggelr Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		D043343D1BA1A60D000E383D /* Toggelr */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D043345D1BA1A60D000E383D /* Build configuration list for PBXNativeTarget "Toggelr" */;
@@ -235,10 +425,14 @@
 				D043343C1BA1A60D000E383D /* Resources */,
 				A26058B7D5B1DF75A54FFF9F /* [CP] Embed Pods Frameworks */,
 				0B1EBC5D36609E1E934A8E08 /* [CP] Copy Pods Resources */,
+				D011BFC51DA393FA00295F94 /* Embed Watch Content */,
+				D096729D1DA3A9EE00416C4E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D011BFBC1DA393FA00295F94 /* PBXTargetDependency */,
+				D09672981DA3A9EE00416C4E /* PBXTargetDependency */,
 			);
 			name = Toggelr;
 			productName = TableSoccerPoc;
@@ -263,6 +457,23 @@
 			productReference = D04334531BA1A60D000E383D /* Toggelr.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D096728C1DA3A9EE00416C4E /* Toggelr-Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D096729A1DA3A9EE00416C4E /* Build configuration list for PBXNativeTarget "Toggelr-Widget" */;
+			buildPhases = (
+				D09672891DA3A9EE00416C4E /* Sources */,
+				D096728A1DA3A9EE00416C4E /* Frameworks */,
+				D096728B1DA3A9EE00416C4E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Toggelr-Widget";
+			productName = "Toggelr-Widget";
+			productReference = D096728D1DA3A9EE00416C4E /* Toggelr-Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -270,17 +481,35 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "4eyes GmbH";
 				TargetAttributes = {
+					D011BF9C1DA393F900295F94 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 8M5L3RUARR;
+						ProvisioningStyle = Automatic;
+					};
+					D011BFA81DA393FA00295F94 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 8M5L3RUARR;
+						ProvisioningStyle = Automatic;
+					};
 					D043343D1BA1A60D000E383D = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 72X8BNT3V2;
+						DevelopmentTeam = 8M5L3RUARR;
+						LastSwiftMigration = 0800;
 					};
 					D04334521BA1A60D000E383D = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 8M5L3RUARR;
+						LastSwiftMigration = 0800;
 						TestTargetID = D043343D1BA1A60D000E383D;
+					};
+					D096728C1DA3A9EE00416C4E = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 8M5L3RUARR;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -299,11 +528,31 @@
 			targets = (
 				D043343D1BA1A60D000E383D /* Toggelr */,
 				D04334521BA1A60D000E383D /* ToggelrTests */,
+				D011BF9C1DA393F900295F94 /* Toggelr Watch */,
+				D011BFA81DA393FA00295F94 /* Toggelr Watch Extension */,
+				D096728C1DA3A9EE00416C4E /* Toggelr-Widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D011BF9B1DA393F900295F94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D011BFA31DA393FA00295F94 /* Assets.xcassets in Resources */,
+				D011BFA11DA393FA00295F94 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D011BFA71DA393FA00295F94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D011BFB91DA393FA00295F94 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D043343C1BA1A60D000E383D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,6 +567,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D096728B1DA3A9EE00416C4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D09672951DA3A9EE00416C4E /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +608,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A26058B7D5B1DF75A54FFF9F /* [CP] Embed Pods Frameworks */ = {
@@ -372,6 +629,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D011BFA51DA393FA00295F94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D011BFB51DA393FA00295F94 /* NotificationController.swift in Sources */,
+				D011BFB71DA393FA00295F94 /* ComplicationController.swift in Sources */,
+				D011BFB31DA393FA00295F94 /* ExtensionDelegate.swift in Sources */,
+				D011BFB11DA393FA00295F94 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D043343A1BA1A60D000E383D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,6 +647,7 @@
 				D0A839051D82094400DF391A /* LeaderboardViewController.swift in Sources */,
 				D0AFE95C1BB2D990008C3FBA /* GameViewController.swift in Sources */,
 				D02E0C231D5DD188007ECD34 /* Constants.swift in Sources */,
+				D0F863FC1DA3F0D4002F5743 /* MainMenuTableViewController.swift in Sources */,
 				D04334671BA1BDC1000E383D /* GoalCell.swift in Sources */,
 				D04334691BA1BEDD000E383D /* PlayersCollectionViewController.swift in Sources */,
 				D04334651BA1B936000E383D /* PlayerView.swift in Sources */,
@@ -401,17 +670,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D09672891DA3A9EE00416C4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D09672921DA3A9EE00416C4E /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D011BFAC1DA393FA00295F94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D011BFA81DA393FA00295F94 /* Toggelr Watch Extension */;
+			targetProxy = D011BFAB1DA393FA00295F94 /* PBXContainerItemProxy */;
+		};
+		D011BFBC1DA393FA00295F94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D011BF9C1DA393F900295F94 /* Toggelr Watch */;
+			targetProxy = D011BFBB1DA393FA00295F94 /* PBXContainerItemProxy */;
+		};
 		D04334551BA1A60D000E383D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D043343D1BA1A60D000E383D /* Toggelr */;
 			targetProxy = D04334541BA1A60D000E383D /* PBXContainerItemProxy */;
 		};
+		D09672981DA3A9EE00416C4E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D096728C1DA3A9EE00416C4E /* Toggelr-Widget */;
+			targetProxy = D09672971DA3A9EE00416C4E /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D011BF9F1DA393FA00295F94 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D011BFA01DA393FA00295F94 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		D04334471BA1A60D000E383D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -428,9 +728,115 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
+		D09672931DA3A9EE00416C4E /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D09672941DA3A9EE00416C4E /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D011BFBE1DA393FA00295F94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8M5L3RUARR;
+				ENABLE_TESTABILITY = YES;
+				IBSC_MODULE = Toggelr_Watch_Extension;
+				INFOPLIST_FILE = "Toggelr Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.4eyes.apps.toggelr.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		D011BFBF1DA393FA00295F94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8M5L3RUARR;
+				IBSC_MODULE = Toggelr_Watch_Extension;
+				INFOPLIST_FILE = "Toggelr Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.4eyes.apps.toggelr.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		D011BFC01DA393FA00295F94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8M5L3RUARR;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = "Toggelr Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.4eyes.apps.toggelr.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		D011BFC11DA393FA00295F94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = 8M5L3RUARR;
+				INFOPLIST_FILE = "Toggelr Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.4eyes.apps.toggelr.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
 		D043345B1BA1A60D000E383D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -448,6 +854,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -472,6 +879,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -492,6 +900,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -509,6 +918,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-DRELEASE_VERSION";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 2.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -517,14 +927,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D68EF0DEAF052ACFFB88F810 /* Pods-Toggelr.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 72X8BNT3V2;
+				DEVELOPMENT_TEAM = 8M5L3RUARR;
 				INFOPLIST_FILE = TableSoccerPoc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.4eyes.apps.toggelr;
 				PRODUCT_NAME = Toggelr;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -532,14 +945,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EEFEA0893F1561182FB01A4C /* Pods-Toggelr.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 72X8BNT3V2;
+				DEVELOPMENT_TEAM = 8M5L3RUARR;
 				INFOPLIST_FILE = TableSoccerPoc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.4eyes.apps.toggelr;
 				PRODUCT_NAME = Toggelr;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -547,6 +963,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8M5L3RUARR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -558,6 +975,7 @@
 				INFOPLIST_FILE = TableSoccerPocTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = Toggelr;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Toggelr.app/Toggelr";
 			};
 			name = Debug;
@@ -566,6 +984,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8M5L3RUARR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -573,13 +992,76 @@
 				INFOPLIST_FILE = TableSoccerPocTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = Toggelr;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Toggelr.app/Toggelr";
+			};
+			name = Release;
+		};
+		D096729B1DA3A9EE00416C4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8M5L3RUARR;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = "Toggelr-Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.4eyes.apps.toggelr.Toggelr-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D096729C1DA3A9EE00416C4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8M5L3RUARR;
+				INFOPLIST_FILE = "Toggelr-Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.4eyes.apps.toggelr.Toggelr-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D011BFC21DA393FA00295F94 /* Build configuration list for PBXNativeTarget "Toggelr Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D011BFC01DA393FA00295F94 /* Debug */,
+				D011BFC11DA393FA00295F94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D011BFC41DA393FA00295F94 /* Build configuration list for PBXNativeTarget "Toggelr Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D011BFBE1DA393FA00295F94 /* Debug */,
+				D011BFBF1DA393FA00295F94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D04334391BA1A60D000E383D /* Build configuration list for PBXProject "Toggelr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -603,6 +1085,15 @@
 			buildConfigurations = (
 				D04334611BA1A60D000E383D /* Debug */,
 				D04334621BA1A60D000E383D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D096729A1DA3A9EE00416C4E /* Build configuration list for PBXNativeTarget "Toggelr-Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D096729B1DA3A9EE00416C4E /* Debug */,
+				D096729C1DA3A9EE00416C4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

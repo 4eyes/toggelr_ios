@@ -8,13 +8,13 @@
 
 import UIKit
 
-class LaunchViewController: UIViewController {
+class LaunchViewController: UIViewController, CAAnimationDelegate{
     @IBOutlet weak var animatedSplashScreen: UIImageView!
     
     var started = false;
-    var timer : NSTimer?;
+    var timer : Timer?;
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
 
         startAnimation();
@@ -25,7 +25,7 @@ class LaunchViewController: UIViewController {
         var animationImages : [CGImage] = [];
         
         for i in 0..<animationImageCount {
-            animationImages.append(UIImage(named: "anim" + String(i))!.CGImage!);
+            animationImages.append(UIImage(named: "anim" + String(i))!.cgImage!);
         }
         
         let animation = CAKeyframeAnimation(keyPath: "contents");
@@ -33,13 +33,13 @@ class LaunchViewController: UIViewController {
         animation.duration = Double(animationImageCount) / 20.0; // 20 frames per second
         animation.values = animationImages;
         animation.repeatCount = 1;
-        animation.removedOnCompletion = false;
+        animation.isRemovedOnCompletion = false;
         animation.fillMode = kCAFillModeForwards;
         animation.delegate = self;
-        self.animatedSplashScreen.layer.addAnimation(animation, forKey: "animation");
+        self.animatedSplashScreen.layer.add(animation, forKey: "animation");
     }
     
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-        self.performSegueWithIdentifier("playerselection", sender: self);
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        self.performSegue(withIdentifier: "playerselection", sender: self);
     }
 }
