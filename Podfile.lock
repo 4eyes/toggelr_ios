@@ -1,15 +1,89 @@
 PODS:
   - Alamofire (4.0.1)
+  - HockeySDK (4.1.1):
+    - HockeySDK/DefaultLib (= 4.1.1)
+  - HockeySDK/DefaultLib (4.1.1)
+  - KSCrash (1.8.7):
+    - KSCrash/Installations (= 1.8.7)
+  - KSCrash/Installations (1.8.7):
+    - KSCrash/Recording
+    - KSCrash/Reporting
+  - KSCrash/Recording (1.8.7)
+  - KSCrash/Reporting (1.8.7):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters (= 1.8.7)
+    - KSCrash/Reporting/MessageUI (= 1.8.7)
+    - KSCrash/Reporting/Sinks (= 1.8.7)
+    - KSCrash/Reporting/Tools (= 1.8.7)
+  - KSCrash/Reporting/Filters (1.8.7):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Alert (= 1.8.7)
+    - KSCrash/Reporting/Filters/AppleFmt (= 1.8.7)
+    - KSCrash/Reporting/Filters/Base (= 1.8.7)
+    - KSCrash/Reporting/Filters/Basic (= 1.8.7)
+    - KSCrash/Reporting/Filters/GZip (= 1.8.7)
+    - KSCrash/Reporting/Filters/JSON (= 1.8.7)
+    - KSCrash/Reporting/Filters/Sets (= 1.8.7)
+    - KSCrash/Reporting/Filters/Stringify (= 1.8.7)
+    - KSCrash/Reporting/Filters/Tools (= 1.8.7)
+  - KSCrash/Reporting/Filters/Alert (1.8.7):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/AppleFmt (1.8.7):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/Base (1.8.7):
+    - KSCrash/Recording
+  - KSCrash/Reporting/Filters/Basic (1.8.7):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/GZip (1.8.7):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/JSON (1.8.7):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/Sets (1.8.7):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/AppleFmt
+    - KSCrash/Reporting/Filters/Base
+    - KSCrash/Reporting/Filters/Basic
+    - KSCrash/Reporting/Filters/GZip
+    - KSCrash/Reporting/Filters/JSON
+    - KSCrash/Reporting/Filters/Stringify
+  - KSCrash/Reporting/Filters/Stringify (1.8.7):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/Tools (1.8.7):
+    - KSCrash/Recording
+  - KSCrash/Reporting/MessageUI (1.8.7):
+    - KSCrash/Recording
+  - KSCrash/Reporting/Sinks (1.8.7):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters
+    - KSCrash/Reporting/Tools
+  - KSCrash/Reporting/Tools (1.8.7):
+    - KSCrash/Recording
+  - pop (1.0.9)
+  - SentrySwift (0.4.1):
+    - KSCrash (~> 1.8.5)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0.0)
+  - HockeySDK
+  - pop (~> 1.0)
+  - SentrySwift (~> 0.4)
   - SWRevealViewController (~> 2.3.0)
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  HockeySDK: 364679ba00f3447d014dd75cac57e59cc2574318
+  KSCrash: 0c9046aaba2e44c635db43be410e096249d8d321
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  SentrySwift: 186a042c29180eb93e8bf6db6ceb9988bd9c301e
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 04d55224281fca2e279719ac4a97887ef2c65d82
+PODFILE CHECKSUM: a0f3d894b7cbfc82254c733e87164b77519fd7ec
 
 COCOAPODS: 1.1.0.rc.2
