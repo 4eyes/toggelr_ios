@@ -10,6 +10,18 @@
 import UIKit
 import SWRevealViewController
 
+extension Array
+{
+    /** Randomizes the order of an array's elements. */
+    mutating func shuffle()
+    {
+        for _ in 0..<10
+        {
+            sort { (_,_) in arc4random() < arc4random() }
+        }
+    }
+}
+
 class DataItem : Equatable {
     
     var indexes : String!
@@ -25,7 +37,7 @@ func ==(lhs: DataItem, rhs: DataItem) -> Bool {
     return lhs.indexes == rhs.indexes
 }
 
-class PlayerViewController: UIViewController, KDDragAndDropCollectionViewDataSource, NSURLConnectionDelegate {
+class PlayerViewController: UIViewController, KDDragAndDropCollectionViewDataSource, NSURLConnectionDelegate, NSURLConnectionDataDelegate {
     
     @IBOutlet weak var menuButton: UIButton!
     
@@ -54,13 +66,13 @@ class PlayerViewController: UIViewController, KDDragAndDropCollectionViewDataSou
         UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true);
         
         if revealViewController() != nil {
-            menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: UIControlEvents.touchUpInside);
+            menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: UIControl.Event.touchUpInside);
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
 
         // initialize data array to store the data for the 3 containers (available players, red team, blue team)
-        for i in 0...2 {
+        for _ in 0...2 {
             let items = [DataItem]()
             self.data.append(items)
         }
@@ -153,16 +165,15 @@ class PlayerViewController: UIViewController, KDDragAndDropCollectionViewDataSou
         connection.start()
     }
     
-    func connection(_ connection: NSURLConnection!, didReceiveData jsonData: Data!){
-        self.jsonData.append(jsonData)
+    func connection(_ connection: NSURLConnection, didReceive data: Data){
+        self.jsonData.append(data)
     }
     
     func buttonAction(_ sender: UIButton!){
         startConnection()
     }
     
-    func connectionDidFinishLoading(_ connection: NSURLConnection!) {
-        var err: NSError
+    func connectionDidFinishLoading(_ connection: NSURLConnection) {
         // throwing an error on the line below (can't figure out where the error message is)
         print("received data")
         let jsonResult: NSArray = (try! JSONSerialization.jsonObject(with: self.jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSArray
@@ -261,6 +272,33 @@ class PlayerViewController: UIViewController, KDDragAndDropCollectionViewDataSou
         
     }
     
-    
+    @IBAction func shufflePlayers(_ sender: Any) {
+        var shuffleData : [DataItem] = [DataItem]()
+        
+        for player in self.data[0] {
+            shuffleData.append(player)
+        }
+        for player in self.data[2] {
+            shuffleData.append(player)
+        }
+        
+        shuffleData.shuffle();
+        
+        if(shuffleData.count > 0){
+            self.data[0][0] = shuffleData[0];
+        }
+        if(shuffleData.count > 1){
+            self.data[0][1] = shuffleData[1];
+        }
+        if(shuffleData.count > 2){
+            self.data[2][0] = shuffleData[2];
+        }
+        if(shuffleData.count > 3){
+            self.data[2][1] = shuffleData[3];
+        }
+        
+        TeamRed.reloadData();
+        TeamBlue.reloadData();
+    }
 }
 

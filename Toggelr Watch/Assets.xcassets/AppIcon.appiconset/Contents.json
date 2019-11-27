@@ -3,7 +3,7 @@
     {
       "size" : "24x24",
       "idiom" : "watch",
-      "filename" : "tablesoccerpoclogo58-1.png",
+      "filename" : "tablesoccerpoclogo48.png",
       "scale" : "2x",
       "role" : "notificationCenter",
       "subtype" : "38mm"
@@ -11,7 +11,7 @@
     {
       "size" : "27.5x27.5",
       "idiom" : "watch",
-      "filename" : "tablesoccerpoclogo58-2.png",
+      "filename" : "tablesoccerpoclogo55.png",
       "scale" : "2x",
       "role" : "notificationCenter",
       "subtype" : "42mm"
@@ -26,7 +26,7 @@
     {
       "size" : "29x29",
       "idiom" : "watch",
-      "filename" : "tablesoccerpoclogo120-2.png",
+      "filename" : "tablesoccerpoclogo87.png",
       "role" : "companionSettings",
       "scale" : "3x"
     },
@@ -39,9 +39,25 @@
       "subtype" : "38mm"
     },
     {
+      "size" : "44x44",
+      "idiom" : "watch",
+      "filename" : "tablesoccerpoclogo88.png",
+      "scale" : "2x",
+      "role" : "appLauncher",
+      "subtype" : "40mm"
+    },
+    {
+      "size" : "50x50",
+      "idiom" : "watch",
+      "filename" : "tablesoccerpoclogo100.png",
+      "scale" : "2x",
+      "role" : "appLauncher",
+      "subtype" : "44mm"
+    },
+    {
       "size" : "86x86",
       "idiom" : "watch",
-      "filename" : "tablesoccerpoclogo120-1.png",
+      "filename" : "tablesoccerpoclogo172.png",
       "scale" : "2x",
       "role" : "quickLook",
       "subtype" : "38mm"
@@ -49,10 +65,24 @@
     {
       "size" : "98x98",
       "idiom" : "watch",
-      "filename" : "tablesoccerpoclogo120.png",
+      "filename" : "tablesoccerpoclogo196.png",
       "scale" : "2x",
       "role" : "quickLook",
       "subtype" : "42mm"
+    },
+    {
+      "size" : "108x108",
+      "idiom" : "watch",
+      "filename" : "tablesoccerpoclogo216.png",
+      "scale" : "2x",
+      "role" : "quickLook",
+      "subtype" : "44mm"
+    },
+    {
+      "size" : "1024x1024",
+      "idiom" : "watch-marketing",
+      "filename" : "tablesoccerpoclogo1024.png",
+      "scale" : "1x"
     }
   ],
   "info" : {

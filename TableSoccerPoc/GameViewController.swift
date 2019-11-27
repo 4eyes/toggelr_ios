@@ -95,22 +95,32 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
                 
                 guard let _:Data = data, let _:URLResponse = response  , error == nil else {
                     print("error")
-                    let alert = UIAlertController(title: "Error", message: "Error uploading result", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    let alert = UIAlertController(title: "Error", message: "Error uploading result", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
+                    DispatchQueue.global(qos: .background).async {
+                        DispatchQueue.main.async {
+                           self.present(alert, animated: true, completion: nil)
+                        }
+                    }
+                
                     return
                 }
                 
                 let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                print(dataString)
-                let alert = UIAlertController(title: "Submitted", message: "Your result has been uploaded!", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: {
+                
+                let alert = UIAlertController(title: "Submitted", message: "Your result has been uploaded!", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: {
                     action in
                         // todo: close result view
                         //self.navigationController?.popViewControllerAnimated(true)
                 }))
                 self.submitGameButton.isEnabled = true;
-                self.present(alert, animated: true, completion: nil)
+                
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.async {
+                       self.present(alert, animated: true, completion: nil)
+                    }
+                }
             }
         );
         

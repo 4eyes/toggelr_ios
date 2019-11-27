@@ -29,14 +29,18 @@ class PlayerView: UIView {
         super.init(coder: aDecoder)
     }
     
-    func detectPan(_ recognizer:UIPanGestureRecognizer) {
+    @objc func detectPan(_ recognizer:UIPanGestureRecognizer) {
         let translation  = recognizer.translation(in: self.superview!)
         self.center = CGPoint(x: lastLocation.x + translation.x, y: lastLocation.y + translation.y)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Promote the touched view
-        self.superview?.bringSubview(toFront: self)
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.async {
+                self.superview?.bringSubviewToFront(self)
+            }
+        }
         
         // Remember original location
         lastLocation = self.center

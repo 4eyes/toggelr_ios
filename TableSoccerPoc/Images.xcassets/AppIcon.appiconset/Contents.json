@@ -3,13 +3,13 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "tablesoccerpoclogo58-1.png",
+      "filename" : "tablesoccerpoclogo40.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "tablesoccerpoclogo80-1.png",
+      "filename" : "tablesoccerpoclogo60.png",
       "scale" : "3x"
     },
     {
@@ -19,8 +19,9 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "tablesoccerpoclogo87.png",
       "scale" : "3x"
     },
     {
@@ -30,8 +31,9 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "tablesoccerpoclogo120-1.png",
       "scale" : "3x"
     },
     {
@@ -41,9 +43,16 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "tablesoccerpoclogo180.png",
       "scale" : "3x"
+    },
+    {
+      "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "tablesoccerpoclogo1024.png",
+      "scale" : "1x"
     }
   ],
   "info" : {

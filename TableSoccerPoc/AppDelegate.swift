@@ -7,23 +7,22 @@
 //
 
 import UIKit
-import HockeySDK
-import SentrySwift
+import Sentry
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Configure Hockey app
-        BITHockeyManager.shared().configure(withIdentifier: "667e6c525a6d411a80f49f4183714eb1")
-        BITHockeyManager.shared().start()
-        BITHockeyManager.shared().authenticator.authenticateInstallation()
-        
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Create a Sentry client and start crash handler
-        SentryClient.shared = SentryClient(dsnString: "https://4498988bf5f04a20b6a88dece84cde91:3bd24e67f77f40be9370b8c5e6a23562@logs.4eyes.ch/53")
-        SentryClient.shared?.startCrashHandler()
+        do {
+            Client.shared = try Client(dsn: "https://a27ca2067795453db40e6dcc9da9de4e@logs.4eyes.ch/55")
+            try Client.shared?.startCrashHandler()
+        } catch let error {
+            print("\(error)")
+            // Wrong DSN or KSCrash not installed
+        }
         
         return true
     }

@@ -29,12 +29,12 @@ class LaunchViewController: UIViewController, CAAnimationDelegate{
         }
         
         let animation = CAKeyframeAnimation(keyPath: "contents");
-        animation.calculationMode = kCAAnimationDiscrete;
+        animation.calculationMode = CAAnimationCalculationMode.discrete;
         animation.duration = Double(animationImageCount) / 20.0; // 20 frames per second
         animation.values = animationImages;
         animation.repeatCount = 1;
         animation.isRemovedOnCompletion = false;
-        animation.fillMode = kCAFillModeForwards;
+        animation.fillMode = CAMediaTimingFillMode.forwards;
         animation.delegate = self;
         self.animatedSplashScreen.layer.add(animation, forKey: "animation");
     }

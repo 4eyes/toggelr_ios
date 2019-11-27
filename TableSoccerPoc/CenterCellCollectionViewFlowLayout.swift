@@ -16,7 +16,7 @@ class CenterCellCollectionViewFlowLayout: UICollectionViewFlowLayout {
                 for attributes in attributesForVisibleCells {
                     
                     // == Skip comparison with non-cell items (headers and footers) == //
-                    if attributes.representedElementCategory != UICollectionElementCategory.cell {
+                    if attributes.representedElementCategory != UICollectionView.ElementCategory.cell {
                         continue
                     }
                     
